@@ -46,7 +46,7 @@ Anyway, here's the schematic for the rom chip used in most Chromebooks. The pin 
 Can you see where I'm going with this?
 
 Fortunately for us, if you were to short them together with... oh, let's say a piece of tin foil and some tape...
-![an image showing the SOIC-8 chip and the pins you need to short to disable WP](./breaking/shorting.jpg)
+![an image showing the SOIC-8 chip and the pins you need to short to disable WP](./breaking/shorting.png)
 Then there would be absolutely nothing stopping you from doing whatever you want to the firmware.
 
 The GBB flags are stored in a partition of firmware typically protected from writing. So from the SH1MMER bash shell, making sure the pins are properly shorted with the connecting instrument of your choice, run `/usr/share/vboot/bin/set_GBB_flags.sh 0x8000` and the command will succeed, writing directly to the SOIC-8 chip and allowing you to boot into devmode, where you can fully remove enrollment. As it's a hardware level bypass, this is virtually unpatchable (outside of rotating the rma shim keys).<br/>
